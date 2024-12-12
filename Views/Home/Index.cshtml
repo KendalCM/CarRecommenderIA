@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Car Recommendation</h1>
+
+<form method="post" asp-action="GetRecommendation">
+    <label for="userPrompt">Enter your preferences:</label>
+    <input type="text" id="userPrompt" name="userPrompt" required>
+    <button type="submit">Get Recommendation</button>
+</form>
+
+@if (ViewData["Error"] != null)
+{
+    <p style="color:red">@ViewData["Error"]</p>
+}
+
+@if (ViewData["Recommendation"] != null)
+{
+    <h2>Recommended Car</h2>
+    <p>@ViewData["Recommendation"]</p>
+}

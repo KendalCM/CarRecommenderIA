@@ -1,0 +1,22 @@
+﻿@model IEnumerable<CarRecommenderIA.Models.JdmCar>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>CarRecomenderIA</h1>
+
+<form asp-action="GetRecommendation" method="post">
+    <div class="form-group">
+        <label for="userPrompt">Describe the type of JDM car you're looking for:</label>
+        <input type="text" class="form-control" id="userPrompt" name="userPrompt" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Get Recommendation</button>
+</form>
+
+@if (ViewData["Recommendation"] != null)
+{
+    <h3>Recommendation:</h3>
+    <p>@ViewData["Recommendation"]</p>
+}
